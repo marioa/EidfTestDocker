@@ -19,5 +19,5 @@ RUN apt-get install unzip
 
 
 # Test unpacking of the data
-CMD unzip -l /target/JobsAcUk.zip | head > /target/out.txt
+CMD unzip -l /target/Data/JobsAcUk.zip | head > /target/out.txt
 
