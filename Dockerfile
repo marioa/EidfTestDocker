@@ -1,6 +1,9 @@
 FROM ubuntu:23.04
 
 # LABEL about the custom image
+LABEL org.opencontainers.image.source=https://github.com/marioa/EidfTestDocker
+LABEL org.opencontainers.image.description="My EIDF test container image"
+LABEL org.opencontainers.image.licenses=APACHE2.0
 LABEL maintainer="mario@epcc.ed.ac.uk"
 LABEL version="0.1"
 LABEL description="This is a sample docker image to perform a data ingest"
