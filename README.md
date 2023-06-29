@@ -5,23 +5,27 @@ Publishing a Test Docker image for the [*Edinburgh Internationa Data Facility* (
 
 I need to remember these:
 
+### Build a docker image
+
 ```bash
-# Build a docker instance
 $ docker build -t eidf-data-ingest .
 ```
 
+### Run the docker image
+
 ```bash
-# Run docker
 $ docker run -it eidf-data-ingest
 ```
 
+### Run and remove the image
+
 ```bash
-# Remove the image when it is done
 $ docker run --rm eidf-data-ingest
 ```
 
+### Run images with volumes
+
 ```bash
-# Mount the local directory to the VM
 $ docker run --rm --volume $(pwd)/input_data:/input_data \
                   --volume $(pwd)/output_data:/output_data eidf-data-ingest
 ```
