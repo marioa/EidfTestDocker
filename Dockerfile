@@ -14,13 +14,10 @@ RUN apt update
 # Install unzip
 RUN apt-get install unzip
 
-# Map the current working directory to /target using:
-#
-#  docker run --rm --volume $(pwd):/target eidf-data-ingest
-#
-# It expects to find the data file in the same directory.
+# Entrypoint is the script that will covert the data to analytics ready data
+COPY entrypoint.sh .
 
-
-# Test unpacking of the data
-CMD unzip -l /target/Data/JobsAcUk.zip | head > /target/out.txt
+WORKDIR .
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["--input /input_data/JobsAcUk.zip --output /output_data/data --output_metadata /output_data/metadata"]
 
