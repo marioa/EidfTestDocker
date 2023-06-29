@@ -8,25 +8,25 @@ I need to remember these:
 ### Build a docker image
 
 ```bash
-$ docker build -t eidf-data-ingest .
+$ docker build -t eidf .
 ```
 
 ### Run the docker image
 
 ```bash
-$ docker run -it eidf-data-ingest
+$ docker run -it eidf
 ```
 
 ### Run and remove the image
 
 ```bash
-$ docker run --rm eidf-data-ingest
+$ docker run --rm eidf
 ```
 
 ### Run images with volumes
 
 ```bash
 $ docker run --rm --volume $(pwd)/input_data:/input_data \
-                  --volume $(pwd)/output_data:/output_data eidf-data-ingest
+                  --volume $(pwd)/output_data:/output_data eidf
 ```
 
