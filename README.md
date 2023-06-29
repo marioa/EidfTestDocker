@@ -3,7 +3,7 @@ Publishing a Test Docker image for the [*Edinburgh Internationa Data Facility* (
 
 ## Docker commands
 
-I need to remember these
+I need to remember these:
 
 ```bash
 # Build a docker instance
@@ -11,17 +11,18 @@ $ docker build -t eidf-data-ingest .
 ```
 
 ```bash
-# Run bash on docker
+# Run docker
 $ docker run -it eidf-data-ingest
 ```
 
 ```bash
-# Remove the command when it is done
-$ docker run --rm -it eidf-data-ingest
+# Remove the image when it is done
+$ docker run --rm eidf-data-ingest
 ```
 
 ```bash
 # Mount the local directory to the VM
-$ docker run --rm -it --volume $(pwd)/input_data:/input_data eidf-data-ingest
+$ docker run --rm --volume $(pwd)/input_data:/input_data \
+                  --volume $(pwd)/output_data:/output_data eidf-data-ingest
 ```
 
