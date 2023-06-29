@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu
 
 # LABEL about the custom image
 LABEL org.opencontainers.image.source=https://github.com/marioa/EidfTestDocker
