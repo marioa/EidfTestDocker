@@ -17,9 +17,11 @@ names(jobs) <- jobNames
 # Create some new columns.
 jobs["resource:licence"] <- rep("CopyrightMaterial", nrow(jobs))
 jobs["resource:format"] <- rep("text", nrow(jobs))
+jobs["resource:access_url"] <- rep("SomeURL", nrow(jobs))
 
 # Columns we want to keep
-wantcols <- c("name", "resource:identifier","resource:description", "resource:description", "resource:format","employer","salary","location","location2")
+wantcols <- c("name", "resource:identifier","resource:description", "resource:licence", 
+              "resource:format" ,"resource:access_url", "employer","salary","location","location2")
 
 # Output format all of which have to be present and have some content
 #
@@ -29,6 +31,7 @@ wantcols <- c("name", "resource:identifier","resource:description", "resource:de
 #         "resource:identifier": "some identifier",
 #         "resource:description": "some description",
 #         "resource:licence": "some licence",
+#          "resource:access_url": "some access url",
 #         "resource:format": "json"
 #     },
 #     "output_data/data/file2": {
@@ -40,7 +43,6 @@ wantcols <- c("name", "resource:identifier","resource:description", "resource:de
 
 # Where the output data is to be found
 wdir <- "output_data/data/JobsAcUk/"
-
 
 
 # Where the data will go
