@@ -1,3 +1,8 @@
 input_data/JobsAcUk.zip
 input_data/JobsAcUk/
 input_data/JobsAcUk.csv
+input_data/jobs2csv.pl
+input_data/knownjobs.txt
+input_data/skippedjobs.txt
+input_data/*_orig*
+input_data/copy.sh
