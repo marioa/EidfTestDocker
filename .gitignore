@@ -6,3 +6,4 @@ input_data/knownjobs.txt
 input_data/skippedjobs.txt
 input_data/*_orig*
 input_data/copy.sh
+.Rproj.user
