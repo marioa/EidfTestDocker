@@ -9,7 +9,7 @@ jobs <- read_csv("input_data/JobsAcUk.csv", show_col_types = FALSE)
 jobNames <- c("resource:identifier", "name","employer","location","SoftwareJob","SoftwareTermIn", "salary",
               "SalarMin","SalaryMax","Hours","Contract","FundFor","QualificationType",
               "PlacedOn", "Closes","JobRef","h1","h2","h3","TypeRole","SubjectArea","location2",
-              "resource:description")
+              "Description")
 
 # Assign names
 names(jobs) <- jobNames
@@ -18,6 +18,7 @@ names(jobs) <- jobNames
 jobs["resource:licence"] <- rep("CopyrightMaterial", nrow(jobs))
 jobs["resource:format"] <- rep("text", nrow(jobs))
 jobs["resource:access_url"] <- rep("SomeURL", nrow(jobs))
+jobs["resource:description"] <- rep("SomeDescription", nrow(jobs))
 
 # Columns we want to keep
 wantcols <- c("name", "resource:identifier","resource:description", "resource:licence", 
