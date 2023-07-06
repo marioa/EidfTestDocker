@@ -3,42 +3,56 @@ library(readr)
 library(jsonlite)
 
 # Read the data
-jobs <- read_csv("input_data/JobsAcUk.csv")
+jobs <- read_csv("input_data/JobsAcUk.csv", show_col_types = FALSE)
 
 # Create names to the data.frame columns
-jobNames <- c("Id", "Name","Employer","Location","SoftwareJob","SoftwareTermIn", "Salary",
+jobNames <- c("resource:identifier", "name","employer","location","SoftwareJob","SoftwareTermIn", "salary",
               "SalarMin","SalaryMax","Hours","Contract","FundFor","QualificationType",
-              "PlacedOn", "Closes","JobRef","h1","h2","h3","TypeRole","SubjectArea","Location2",
-              "Description")
+              "PlacedOn", "Closes","JobRef","h1","h2","h3","TypeRole","SubjectArea","location2",
+              "resource:description")
 
 # Assign names
 names(jobs) <- jobNames
 
-# Output format
+# Create some new columns.
+jobs["resource:licence"] <- rep("CopyrightMaterial", nrow(jobs))
+jobs["resource:format"] <- rep("text", nrow(jobs))
+
+# Columns we want to keep
+wantcols <- c("name", "resource:identifier","resource:description", "resource:description", "resource:format","employer","salary","location","location2")
+
+# Output format all of which have to be present and have some content
 #
 # {
 #     "output_data/data/file1": {
-#         "identifier": "some identifier",
 #         "name" : "some_name_for_display",
-#         "description": "some description",
-#         "licence": "some licence",
-#         "format": "json"
+#         "resource:identifier": "some identifier",
+#         "resource:description": "some description",
+#         "resource:licence": "some licence",
+#         "resource:format": "json"
 #     },
 #     "output_data/data/file2": {
 #     ...
 #     }
 # }
 
+# Set some basic parameters
+
+# Where the output data is to be found
 wdir <- "output_data/data/JobsAcUk/"
-wantcols <- c("Name", "Employer","Location","Location2")
+
+
+
+# Where the data will go
 l <- list()
 
-
-for(i in seq(1,10)){
-  l[[paste0(wdir,jobs$Id[i])]] <- unbox(jobs[i,][wantcols])
+# Populate the data structure
+for(i in seq(1, nrow(jobs))){
+  l[[paste0(wdir,jobs$"resource:identifier"[i])]] <- unbox(jobs[i,][wantcols])
 
 }
 
-toJSON(l, pretty = TRUE, auto_unbox = TRUE)
+# Write the output to file
+write(toJSON(l, pretty = TRUE, auto_unbox = TRUE), "output_data/metadata/resources.json")
 
 
