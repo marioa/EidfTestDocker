@@ -7,3 +7,5 @@ input_data/skippedjobs.txt
 input_data/*_orig*
 input_data/copy.sh
 .Rproj.user
+output_data/data/
+output_data/metadata/
