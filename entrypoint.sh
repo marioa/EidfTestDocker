@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
-# This is a test operation for now
-unzip -l /input_data/JobsAcUk.zip | head > /output_data/data/out.txt
+# Unzip the data.
+unzip /input_data/JobsAcUk.zip -d /output_data/data/
+
+# Copy the resource metadata
+cp ./resources.json /output_data/metadata/
 
