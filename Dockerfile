@@ -20,5 +20,4 @@ COPY resources.json .
 
 WORKDIR .
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["--input /input_data/JobsAcUk.zip --output /output_data/data --output_metadata /output_data/metadata"]
 
