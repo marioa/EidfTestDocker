@@ -9,3 +9,6 @@ input_data/copy.sh
 .Rproj.user
 output_data/data/
 output_data/metadata/
+.DS_Store
+.RData
+.Rhistory
