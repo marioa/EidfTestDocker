@@ -30,3 +30,12 @@ $ docker run --rm --volume $(pwd)/input_data:/input_data \
                   --volume $(pwd)/output_data:/output_data eidf
 ```
 
+### Push image to dockerhub
+
+Publishing to the github package registry requires authentication so publishing at [dockerhub](https://hub.docker.com/repository/docker/marioant/eidf/general) instead.
+
+```bash
+$ docker login
+$ docker tag eidf marioant/eidf
+$ docker push marioant/eidf
+```
