@@ -1,9 +1,9 @@
-# File to create an additional metadata file.
+# File to create an resource metadata file.
 library(readr)
 library(jsonlite)
 
 # Read the data
-jobs <- read_csv("input_data/JobsAcUk.csv", show_col_types = FALSE)
+jobs <- read_csv("input_data/JobsAcUk.csv.gz", show_col_types = FALSE)
 
 # Create names to the data.frame columns
 jobNames <- c("resource:identifier", "name","employer","location","SoftwareJob","SoftwareTermIn", "salary",
@@ -27,7 +27,7 @@ wantcols <- c("name", "resource:identifier","resource:description", "resource:li
 # Output format all of which have to be present and have some content
 #
 # {
-#     "output_data/data/file1": {
+#     "[parent directory]/file1": {
 #         "name" : "some_name_for_display",
 #         "resource:identifier": "some identifier",
 #         "resource:description": "some description",
@@ -35,7 +35,7 @@ wantcols <- c("name", "resource:identifier","resource:description", "resource:li
 #          "resource:access_url": "some access url",
 #         "resource:format": "json"
 #     },
-#     "output_data/data/file2": {
+#     "[parent directory]/file2": {
 #     ...
 #     }
 # }
@@ -43,7 +43,7 @@ wantcols <- c("name", "resource:identifier","resource:description", "resource:li
 # Set some basic parameters
 
 # Where the output data is to be found
-wdir <- "output_data/data/JobsAcUk/"
+wdir <- "JobsAcUk/"
 
 
 # Where the data will go
